@@ -4,7 +4,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-// Função para buscar os produtos com suporte a UTF-8
+
 Future<List<Produto>> fetchProdutos() async {
   final response =
       await http.get(Uri.parse('https://arquivos.ectare.com.br/produtos.json'));
@@ -19,7 +19,6 @@ Future<List<Produto>> fetchProdutos() async {
   }
 }
 
-// Classe Produto
 class Produto {
   final String nome;
   final String categoria;
@@ -81,13 +80,13 @@ Widget build(BuildContext context) {
     title: 'Exemplo API - Produtos',
     home: Scaffold(
       appBar: AppBar(
-        toolbarHeight: 120, // Define a altura do AppBar
-        backgroundColor: Colors.white, // Define o fundo branco
+        toolbarHeight: 120, 
+        backgroundColor: Colors.white,
         title: Center(
           child: Image.asset(
             "assets/logo.png",
-            width: 110, // Largura da imagem
-            height: 110, // Altura da imagem
+            width: 110, 
+            height: 110, 
           ),
         ),
       ),
@@ -119,13 +118,13 @@ Widget build(BuildContext context) {
                       leading: Icon(
                         icone,
                         size: 30,
-                        color: isExpanded ? Colors.green : Colors.black, // Cor do ícone ao expandir
+                        color: isExpanded ? Colors.green : Colors.black, 
                       ),
                       title: Text(
                         categoria,
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          color: isExpanded ? Colors.green : Colors.black, // Cor do título ao expandir
+                          color: isExpanded ? Colors.green : Colors.black, 
                         ),
                       ),
                       children: produtos.map((produto) {
@@ -157,7 +156,7 @@ Widget build(BuildContext context) {
     );
   }
 
-  // Função para agrupar produtos por categoria
+
   Map<String, List<Produto>> _agruparPorCategoria(List<Produto> produtos) {
     final Map<String, List<Produto>> produtosPorCategoria = {};
 
@@ -171,7 +170,7 @@ Widget build(BuildContext context) {
     return produtosPorCategoria;
   }
 
-  // Função para retornar ícones por categoria
+
   IconData _iconePorCategoria(String categoria) {
     switch (categoria) {
       case 'Eletrônicos':
